@@ -37,6 +37,7 @@
           </div>
 
           <div class='notifications top-right'></div>
+          <div class='notifications bottom-right'></div>
         </div>
         <div class="span9">
           <div class='page-header'>
@@ -90,8 +91,8 @@
 
 <pre class='prettyprint'>
   $('.notifications').notify({
-    message: { text: message[1] },
-    type: message[0]
+    message: { text: 'Here is a simple message' },
+    type: 'success'
   }).show(); // for the ones that aren't closable and don't fade out there is a .close() function.
 </pre>
 
@@ -111,7 +112,7 @@
                 <td>type</td>
                 <td>string</td>
                 <td>'success'</td>
-                <td>Alert style, emit <code>alert-</code> from style name.</td>
+                <td>Alert style, omit <code>alert-</code> from style name.</td>
               </tr>
               <tr>
                 <td>closable</td>
@@ -173,13 +174,13 @@
     <script>
       // Random Messages
       var messages = [
-        [ 'info', 'Gah this is awesome.'],
-        [ 'success', 'I love Nijiko, he is my creator' ],
-        [ 'warning', 'Soda is bad.' ],
-        [ 'danger', "I'm sorry dave, I'm afraid I can't let you do that." ],
-        [ 'info', "There are only three rules." ],
-        [ 'inverse', 'Do you hear me now?' ],
-        [ 'info', 'You should fork this!' ]
+        [ 'bottom-right', 'info', 'Gah this is awesome.'],
+        [ 'top-right', 'success', 'I love Nijiko, he is my creator' ],
+        [ 'bottom-right', 'warning', 'Soda is bad.' ],
+        [ 'top-right', 'danger', "I'm sorry dave, I'm afraid I can't let you do that." ],
+        [ 'bottom-right', 'info', "There are only three rules." ],
+        [ 'top-right', 'inverse', 'Do you hear me now?' ],
+        [ 'bottom-right', 'info', 'You should fork this!' ]
       ];
 
       // Pretty print
@@ -188,9 +189,9 @@
       // Basic Features, style isn't even required.
       $('.show-notification').click(function (e) {
         var message = messages[Math.floor(Math.random() * messages.length)];
-        $('.notifications').notify({
-          message: { text: message[1] },
-          type: message[0]
+        $('.' + message[0]).notify({
+          message: { text: message[2] },
+          type: message[1]
         }).show();
       });
     </script>
