@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Twitter Bootstrap Notifications, from Nijiko Yonskai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notifications for bootstrap">
+    <meta name="author" content="Nijiko Yonskai">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap-notify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span3">
+          <div class="span12">&nbsp;</div>
+
+          <div class="span12">
+            <a href="https://github.com/Nijikokun/bootstrap-notify" class='btn'>Fork On Github</a>
+          </div>
+
+          <div class="span12">&nbsp;</div>
+          <div class="span12">&nbsp;</div>
+
+          <div class="span12">
+            <button class='btn btn-warning show-notification'>Click For A Notification</button>
+          </div>
+
+          <div class='notifications top-right'></div>
+        </div>
+        <div class="span9">
+          <div class='page-header'>
+            <h1>Twitter Bootstrap Extensions: Notifications</h1>
+          </div>
+
+          <p>Introducing... Notifications for Twitter Bootstrap. What? Doesn't it already have alerts? Yes, but they are not as user-friendly as this is, to make a notification with bootstrap you have to code some ugly psuedo-html/js solution in a hacky manner or create your own notification system. So I created this basic one that leverages the default alert script from bootstrap:</p>
+
+          <h4>Html:</h4>
+<pre class='prettyprint'>
+  &lt;div class='notifications top-left'>&lt;/div>
+</pre>
+
+          <h5>Position Options:</h5>
+          
+          <p>Notifications supports four different position classes, only if utilizing the css file provided.</p>
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width: 100px;">Position</th>
+                <th style="width: 100px;">Class Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Top Left</td>
+                <td>top-left</td>
+                <td>Notifications will appear fixed in the top-left corner</td>
+              </tr>
+              <tr>
+                <td>Top Right</td>
+                <td>top-right</td>
+                <td>Notifications will appear fixed in the top-right corner</td>
+              </tr>
+              <tr>
+                <td>Bottom Left</td>
+                <td>bottom-left</td>
+                <td>Notifications will appear fixed in the bottom-left corner</td>
+              </tr>
+              <tr>
+                <td>Bottom Right</td>
+                <td>bottom-right</td>
+                <td>Notifications will appear fixed in the bottom-right corner</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Js:</h4>
+
+<pre class='prettyprint'>
+  $('.notifications').notify({
+    message: { text: message[1] },
+    type: message[0]
+  }).show(); // for the ones that aren't closable and don't fade out there is a .close() function.
+</pre>
+
+          <h5>Options:</h5>
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width: 100px;">Name</th>
+                <th style="width: 100px;">type</th>
+                <th style="width: 100px;">default</th>
+                <th>description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>'success'</td>
+                <td>Alert style, emit <code>alert-</code> from style name.</td>
+              </tr>
+              <tr>
+                <td>closable</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Allow alert to be closable through a close icon.</td>
+              </tr>
+              <tr>
+                <td>transition</td>
+                <td>string</td>
+                <td>'fade'</td>
+                <td>Alert transition, pretty sure only <code>fade</code> is supported, you can try others if you wish.</td>
+              </tr>
+              <tr>
+                <td>fadeOut</td>
+                <td>object</td>
+                <td>...</td>
+                <td>
+                  <p>Fade alert out after a certain delay (<em>in ms</em>)</p>
+                  <p>Object structure: <code>fadeOut: { enabled: true, delay: 3000 }</code></p>
+                </td>
+              </tr>
+              <tr>
+                <td>message</td>
+                <td>object</td>
+                <td>...</td>
+                <td>
+                  <p>Text to show on alert, you can use either html or text. HTML will override text.</p>
+                  <p>Object structure: <code>message: { html: false, text: 'This is a message.' }</code></p> 
+                </td>
+              </tr>
+              <tr>
+                <td>onClose</td>
+                <td>function</td>
+                <td>...</td>
+                <td>Called before alert closes.</td>
+              </tr>
+              <tr>
+                <td>onClosed</td>
+                <td>function</td>
+                <td>...</td>
+                <td>Called after alert closes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="../js/bootstrap-notify.js"></script>
+    <script>
+      // Random Messages
+      var messages = [
+        [ 'info', 'Gah this is awesome.'],
+        [ 'success', 'I love Nijiko, he is my creator' ],
+        [ 'warning', 'Soda is bad.' ],
+        [ 'danger', "I'm sorry dave, I'm afraid I can't let you do that." ],
+        [ 'info', "There are only three rules." ],
+        [ 'inverse', 'Do you hear me now?' ],
+        [ 'info', 'You should fork this!' ]
+      ];
+
+      // Pretty print
+      window.prettyPrint && prettyPrint()
+
+      // Basic Features, style isn't even required.
+      $('.show-notification').click(function (e) {
+        var message = messages[Math.floor(Math.random() * messages.length)];
+        $('.notifications').notify({
+          message: { text: message[1] },
+          type: message[0]
+        }).show();
+      });
+    </script>
+  </body>
+</html>
