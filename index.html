@@ -25,19 +25,26 @@
         <div class="span3">
           <div class="span12">&nbsp;</div>
 
-          <div class="span12">
-            <a href="https://github.com/Nijikokun/bootstrap-notify" class='btn'>Fork On Github</a>
+          <div class="span3">
+            <iframe src="http://nijikokun.github.com/github-buttons/github-btn.html?user=Nijikokun&repo=bootstrap-notify&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+            <iframe src="http://nijikokun.github.com/github-buttons/github-btn.html?user=Nijikokun&repo=bootstrap-notify&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+            
+            <br />
+            
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="vizualover" data-related="nijikokun" data-hashtags="twitterextensions">Tweet</a>
           </div>
 
           <div class="span12">&nbsp;</div>
           <div class="span12">&nbsp;</div>
 
           <div class="span12">
-            <button class='btn btn-warning show-notification'>Click For A Notification</button>
+            <button class='btn btn-warning show-notification'>Click For A Random Notification</button>
           </div>
 
           <div class='notifications top-right'></div>
           <div class='notifications bottom-right'></div>
+          <div class='notifications top-left'></div>
+          <div class='notifications bottom-left'></div>
         </div>
         <div class="span9">
           <div class='page-header'>
@@ -90,9 +97,8 @@
           <h4>Js:</h4>
 
 <pre class='prettyprint'>
-  $('.notifications').notify({
-    message: { text: 'Here is a simple message' },
-    type: 'success'
+  $('.top-left').notify({
+    message: { text: 'Aw yeah, It works!' }
   }).show(); // for the ones that aren't closable and don't fade out there is a .close() function.
 </pre>
 
@@ -165,6 +171,7 @@
 
     <!-- Le javascript
     ================================================== -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
     <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
@@ -174,13 +181,13 @@
     <script>
       // Random Messages
       var messages = [
-        [ 'bottom-right', 'info', 'Gah this is awesome.'],
-        [ 'top-right', 'success', 'I love Nijiko, he is my creator' ],
-        [ 'bottom-right', 'warning', 'Soda is bad.' ],
-        [ 'top-right', 'danger', "I'm sorry dave, I'm afraid I can't let you do that." ],
-        [ 'bottom-right', 'info', "There are only three rules." ],
-        [ 'top-right', 'inverse', 'Do you hear me now?' ],
-        [ 'bottom-right', 'info', 'You should fork this!' ]
+        [ 'bottom-right', 'info',     'Gah this is awesome.'],
+        [ 'top-right',    'success',  'I love Nijiko, he is my creator.' ],
+        [ 'bottom-left',  'warning',  'Soda is bad.' ],
+        [ 'bottom-left',  'danger',   "I'm sorry dave, I'm afraid I can't let you do that." ],
+        [ 'bottom-right', 'info',     "There are only three rules." ],
+        [ 'top-right',    'inverse',  'Do you hear me now?' ],
+        [ 'bottom-left',  'info',     'You should fork this!' ]
       ];
 
       // Pretty print
@@ -189,6 +196,7 @@
       // Basic Features, style isn't even required.
       $('.show-notification').click(function (e) {
         var message = messages[Math.floor(Math.random() * messages.length)];
+        
         $('.' + message[0]).notify({
           message: { text: message[2] },
           type: message[1]
