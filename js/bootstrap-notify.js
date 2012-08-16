@@ -37,13 +37,16 @@
       this.$note.addClass('alert-' + this.options.type)
     else this.$note.addClass('alert-success')
 
-    if(typeof this.options.message === 'object')
-      if(this.options.message.html)
-        this.$note.html(this.options.message.html)
-      else if(this.options.message.text)
-        this.$note.text(this.options.message.text)
+    if(!this.options.message && this.$element.data("message") !== '') // dom text
+      this.$note.html(this.$element.data("message"))
     else 
-      this.$note.html(this.options.message)
+      if(typeof this.options.message === 'object')
+        if(this.options.message.html)
+          this.$note.html(this.options.message.html)
+        else if(this.options.message.text)
+          this.$note.text(this.options.message.text)
+      else 
+        this.$note.html(this.options.message)
 
     if(this.options.closable)
       this.$note.prepend($('<a class="close pull-right" data-dismiss="alert" href="#">&times;</a>'))
@@ -93,10 +96,7 @@
       enabled: true,
       delay: 3000
     },
-    message: {
-      html: false,
-      text: 'This is a message.'
-    },
+    message: null,
     onClose: function () {},
     onClosed: function () {}
   }
