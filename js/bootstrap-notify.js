@@ -33,10 +33,13 @@
       else this.$note.addClass(this.options.transition)
     else this.$note.addClass('fade').addClass('in')
 
-    if(this.options.type)
-      this.$note.addClass('alert-' + this.options.type)
+    // Type
+    var type = this.$element.data("type") || this.options.type;
+    if(type)
+      this.$note.addClass('alert-' + type)
     else this.$note.addClass('alert-success')
 
+    // Content
     if(!this.options.message && this.$element.data("message") !== '') // dom text
       this.$note.html(this.$element.data("message"))
     else 
