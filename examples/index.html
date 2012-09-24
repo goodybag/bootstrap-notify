@@ -234,7 +234,10 @@
         
         $('.' + message[0]).notify({
           message: { text: message[2] },
-          type: message[1]
+          type: message[1],
+          fadeOut: {
+            delay: Math.floor(Math.random() * 500) + 2500
+          }
         }).show();
       });
       
