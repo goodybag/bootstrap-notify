@@ -47,39 +47,31 @@
         this.$note.html(this.options.message);
 
     if(this.options.closable)
-      this.$note.prepend($('<a class="close pull-right" data-dismiss="alert" href="#">&times;</a>'));
+      var link = $('<a class="close pull-right" href="#">&times;</a>');
+      $(link).on('click', $.proxy(onClose, this));
+      this.$note.prepend(link);
 
     return this;
   };
 
-  Notification.prototype.show = function () {
-    var self = this;
+  onClose = function() {
+    this.options.onClose();
+    $(this.$note).remove();
+    this.options.onClosed();
+  };
 
+  Notification.prototype.show = function () {
     if(this.options.fadeOut.enabled)
-      this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', function () {
-        self.options.onClose();
-        $(this).remove();
-        self.options.onClosed();
-      });
+      this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', $.proxy(onClose, this));
 
     this.$element.append(this.$note);
     this.$note.alert();
   };
 
   Notification.prototype.hide = function () {
-    var self = this;
-
     if(this.options.fadeOut.enabled)
-      this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', function () {
-        self.options.onClose();
-        $(this).remove();
-        self.options.onClosed();
-      });
-    else {
-      self.options.onClose();
-      this.$note.remove();
-      self.options.onClosed();
-    }
+      this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', $.proxy(onClose, this));
+    else onClose.call(this);
   };
 
   $.fn.notify = function (options) {
