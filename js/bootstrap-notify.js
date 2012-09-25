@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-!function ($) {
+(function ($) {
   var Notification = function (element, options) {
     // Element collection
     this.$element = $(element);
@@ -60,7 +60,7 @@
     this.options.onClosed();
   };
 
-  Notification.prototype.show = function () {
+  Notification.prototype['show'] = function () {
     if(this.options.fadeOut.enabled)
       this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', $.proxy(onClose, this));
 
@@ -68,7 +68,7 @@
     this.$note.alert();
   };
 
-  Notification.prototype.hide = function () {
+  Notification.prototype['hide'] = function () {
     if(this.options.fadeOut.enabled)
       this.$note.delay(this.options.fadeOut.delay || 3000).fadeOut('slow', $.proxy(onClose, this));
     else onClose.call(this);
@@ -90,4 +90,4 @@
     onClose: function () {},
     onClosed: function () {}
   }
-}(window.jQuery);
+})(window['jQuery']);
