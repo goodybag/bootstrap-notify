@@ -1,28 +1,26 @@
+/**
+ * Created less By Vitaly @Laboratory
+ */
 .notifications {
   position: fixed;
 }
-
-/* Positioning */ 
+/* Positioning */
 .notifications.top-right {
   right: 10px;
   top: 25px;
 }
-
 .notifications.top-left {
   left: 10px;
   top: 25px;
 }
-
 .notifications.bottom-left {
   left: 10px;
   bottom: 25px;
 }
-
 .notifications.bottom-right {
   right: 10px;
   bottom: 25px;
 }
-
 /* Notification Element */
 .notifications > div {
   position: relative;
