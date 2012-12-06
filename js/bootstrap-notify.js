@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-!function ($) {
+(function ($) {
   var Notification = function (element, options) {
     // Element collection
     this.$element = $(element);
     this.$note    = $('<div class="alert"></div>');
-    this.options  = $.extend(true, $.fn.notify.defaults, options);
+    this.options  = $.extend(true, {}, $.fn.notify.defaults, options);
 
     // Setup from options
     if(this.options.transition)
@@ -89,4 +89,4 @@
     onClose: function () {},
     onClosed: function () {}
   }
-}(window.jQuery);
+})(window.jQuery);
