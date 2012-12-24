@@ -1,0 +1,45 @@
+/**
+ * Bootstrap-notify.less
+ *
+ * @author Vitaly @Laboratory
+ * @copyright 2012 Vitaly
+ */
+
+@right: 10px;
+@left: @right;
+@top: 25px;
+@bottom: @top;
+
+.notifications {
+    position: fixed;
+}
+
+/* Positioning */
+.notifications.top-right {
+    right: @right;
+    top: @top;
+}
+
+.notifications.top-left {
+    left: @left;
+    top: @top;
+}
+
+.notifications.bottom-left {
+    left: @left;
+    bottom: @bottom;
+}
+
+.notifications.bottom-right {
+    right: @right;
+    bottom: @bottom;
+}
+
+/* Notification Element */
+.notifications {
+  > div {
+      position: relative;
+      z-index: 9999;
+      margin: 5px 0px;
+  }
+}
