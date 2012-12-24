@@ -3,9 +3,7 @@ bootstrap-notify
 
 Bootstrap alert system made better.
 
-### Contributors
+### Copyright
 
-* Nijiko Yonskai <http://twitter.com/nijikokun>
-
-
-Copyright 2012 Goodybag, Inc.
+    Copyright 2012 Nijiko Yonskai @nijikokun
+    Copyright 2012 Goodybag, Inc.
