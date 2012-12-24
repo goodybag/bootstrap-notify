@@ -1,0 +1,45 @@
+/**
+ * bangTidy2 Style - Ported from Growl Style
+ * Ported and Cleaned By Nijikokun @nijikokun
+ * Less By Vitaly @Laboratory
+ * Original Author Daryl Ginn
+ * Based On http://dribbble.com/shots/527056-Growl-Theme-2
+ *
+ * To use, for style use: bangTidy
+ *
+ */
+
+@glossLight: rgba(0, 0, 0, 0.80);
+@glossDark: rgba(0, 0, 0, 0.88);
+@box_shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+@text_shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+@border_radius: 4px;
+
+.alert-bangTidy {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: @glossLight;
+  background: -moz-linear-gradient(top, @glossLight 0%, @glossDark 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @glossLight), color-stop(100%, @glossDark));
+  background: -webkit-linear-gradient(top, @glossLight 0%, @glossDark 100%);
+  background: -o-linear-gradient(top, @glossLight 0%, @glossDark 100%);
+  background: -ms-linear-gradient(top, @glossLight 0%, @glossDark 100%);
+  background: linear-gradient(top, @glossLight 0%, @glossDark 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '@{glossLight}', endColorstr = '@{glossDark}', GradientType = 0);
+  border: 1px solid #000;
+  -webkit-box-shadow: @box_shadow;
+  -moz-box-shadow: @box_shadow;
+  -o-box-shadow: @box_shadow;
+  box-shadow: @box_shadow;
+  -webkit-border-radius: @border_radius;
+  -moz-border-radius: @border_radius;
+  -o-border-radius: @border_radius;
+  border-radius: @border_radius;
+  overflow: hidden;
+  color: white;
+  -webkit-text-shadow: @text_shadow;
+  -moz-text-shadow: @text_shadow;
+  -o-text-shadow: @text_shadow;
+  text-shadow: @text_shadow;
+  -webkit-font-smoothing: antialiased;
+}

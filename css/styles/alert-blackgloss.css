@@ -11,33 +11,6 @@
  *   The gloss is only supported in webkit based browsers. 
  *   Chrome and Safari.
  */
-@-webkit-keyframes notification {
-	0% { -webkit-transform: rotateY(-90deg); opacity: 0; }
-	70% { -webkit-transform: rotateY(20deg); opacity: .8; }
-	90% { -webkit-transform: rotateY(-10deg); opacity: 1; }
-	100% { -webkit-transform: rotateY(-0deg); opacity: 1; }
-}
-
-@-moz-keyframes notification {
-	0% { -webkit-transform: rotateY(-90deg); opacity: 0; }
-	70% { -webkit-transform: rotateY(20deg); opacity: .8; }
-	90% { -webkit-transform: rotateY(-10deg); opacity: 1; }
-	100% { -webkit-transform: rotateY(-0deg); opacity: 1; }
-}
-
-@-o-keyframes notification {
-	0% { -webkit-transform: rotateY(-90deg); opacity: 0; }
-	70% { -webkit-transform: rotateY(20deg); opacity: .8; }
-	90% { -webkit-transform: rotateY(-10deg); opacity: 1; }
-	100% { -webkit-transform: rotateY(-0deg); opacity: 1; }
-}
-
-keyframes notification {
-	0% { -webkit-transform: rotateY(-90deg); opacity: 0; }
-	70% { -webkit-transform: rotateY(20deg); opacity: .8; }
-	90% { -webkit-transform: rotateY(-10deg); opacity: 1; }
-	100% { -webkit-transform: rotateY(-0deg); opacity: 1; }
-}
 
 /* Webkit Only */
 .alert-blackgloss:before {
@@ -57,11 +30,6 @@ keyframes notification {
 }
 
 .alert-blackgloss {
-	-webkit-animation: notification .75s linear;
-	-moz-animation: notification .75s linear;
-	-ms-animation: notification .75s linear;
-	-o-animation: notification .75s linear;
-	animation: notification .75s linear;
 	background: rgba(0,0,0,1);
 	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.2), inset 0 0 0 1px rgba(255,255,255,.1);
 	-moz-box-shadow: 0 2px 5px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.2), inset 0 0 0 1px rgba(255,255,255,.1);
