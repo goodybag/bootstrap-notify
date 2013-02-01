@@ -53,7 +53,7 @@
     return this;
   };
 
-  Notificaiton.onClose = function () {
+  Notification.onClose = function () {
     this.options.onClose();
     $(this.$note).remove();
     this.options.onClosed();
