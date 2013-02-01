@@ -27,7 +27,7 @@
 
     // Setup from options
     if (this.options.transition)
-      if (this.options.transition == 'fade')
+      if (this.options.transition === 'fade')
         this.$note.addClass('in').addClass(this.options.transition);
       else this.$note.addClass(this.options.transition);
     else this.$note.addClass('fade').addClass('in');
