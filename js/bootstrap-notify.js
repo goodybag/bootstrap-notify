@@ -22,7 +22,7 @@
     // Element collection
     this.$element = $(element);
     this.$note    = $('<div class="alert"></div>');
-    this.options  = $.extend(true, $.fn.notify.defaults, options, this.$element.data());
+    this.options  = $.extend(true, {}, $.fn.notify.defaults, options);
     this._link    = null;
 
     // Setup from options
