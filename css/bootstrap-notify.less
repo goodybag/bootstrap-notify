@@ -2,7 +2,9 @@
  * Bootstrap-notify.less
  *
  * @author Vitaly @Laboratory
+ * @author Nijiko Yonskai
  * @copyright 2012 Vitaly
+ * @copyright 2013 Nijiko Yonskai
  */
 
 @right: 10px;
@@ -11,35 +13,43 @@
 @bottom: @top;
 
 .notifications {
-    position: fixed;
-}
+  position: fixed;
 
-/* Positioning */
-.notifications.top-right {
+  &.top-right {
     right: @right;
     top: @top;
-}
+  }
 
-.notifications.top-left {
+  &.top-left {
     left: @left;
     top: @top;
-}
+  }
 
-.notifications.bottom-left {
+  &.bottom-left {
     left: @left;
     bottom: @bottom;
-}
+  }
 
-.notifications.bottom-right {
+  &.bottom-right {
     right: @right;
     bottom: @bottom;
-}
+  }
 
-/* Notification Element */
-.notifications {
   > div {
-      position: relative;
-      z-index: 9999;
-      margin: 5px 0px;
+    position: relative;
+    z-index: 9999;
+    margin: 5px 0px;
+  }
+
+  &.center {
+    top: 48%;
+    left: 0;
+    width: 100%;
+
+    > div {
+      margin: 5px auto;
+      width: 20%;
+      text-align: center;
+    }
   }
 }

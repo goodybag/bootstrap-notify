@@ -105,6 +105,11 @@
                 <td>bottom-right</td>
                 <td>Notifications will appear fixed in the bottom-right corner</td>
               </tr>
+              <tr>
+                <td>Center</td>
+                <td>center</td>
+                <td>Notifications will appear centered on the screen</td>
+              </tr>
             </tbody>
           </table>
 
@@ -216,30 +221,49 @@
     <script src="../js/bootstrap-notify.js"></script>
     <script>
       // Random Messages
-      var messages = [
-        [ 'bottom-right', 'info',     'Gah this is awesome.'],
-        [ 'top-right',    'success',  'I love Nijiko, he is my creator.' ],
-        [ 'bottom-left',  'warning',  'Soda is bad.' ],
-        [ 'top-right',  'danger',   "I'm sorry dave, I'm afraid I can't let you do that." ],
-        [ 'bottom-right', 'info',     "There are only three rules." ],
-        [ 'top-right',    'inverse',  'Do you hear me now?' ],
-        [ 'bottom-left',  'blackgloss',     'You should fork this!' ]
-      ];
+      var example = {
+        messages: [
+          'Gah this is awesome.',
+          'Just do it.',
+          'Why are you not using this?!',
+          'Soda is bad.',
+          "I'm sorry dave, I'm afraid I can't let you do that.",
+          'There are only three rules.',
+          'Do you hear me now?',
+          'You should fork this!',
+          'You should star this!',
+          'Holy cow, another alert!'
+        ],
+        positions: [
+          'bottom-right',
+          'bottom-left',
+          'top-right',
+          'top-left',
+          'center'
+        ],
+        styles: [
+          'info',
+          'success',
+          'warning',
+          'danger',
+          'inverse',
+
+          // custom
+          'bangTidy',
+          'blackgloss'
+        ]
+      };
+
+      function select (arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
 
       // Pretty print
       window.prettyPrint && prettyPrint()
 
       // Basic Features, style isn't even required.
       $('.show-notification').click(function (e) {
-        var message = messages[Math.floor(Math.random() * messages.length)];
-
-        $('.' + message[0]).notify({
-          message: { text: message[2] },
-          type: message[1],
-          fadeOut: {
-            delay: Math.floor(Math.random() * 500) + 2500
-          }
-        }).show();
+        $('.' + select(example.positions)).notify({ message: { text: select(example.messages) }, type: select(example.styles) }).show();
       });
 
       /* Custom Styles */
@@ -253,8 +277,7 @@
 
         (function(type) {
           $('.show-' + type).click(function (e) {
-            var message = messages[Math.floor(Math.random() * messages.length)];
-            $('.' + message[0]).notify({ message: { text: message[2] }, type: type }).show();
+            $('.' + select(example.positions)).notify({ message: { text: select(example.messages) }, type: type }).show();
           });
         })(type);
       }
