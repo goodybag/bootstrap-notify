@@ -20,8 +20,6 @@
     "use strict";
 
     var Notification = function (container, options) {
-        var link;
-
         this.$container = $(container);
         this.options = this.normalizeOptions(options);
         this.proxiedOnClose = $.proxy(this.onClose, this);
@@ -32,7 +30,7 @@
         this.setMessage(this.options.message);
 
         if (this.options.closable) {
-            link = $('<a class="close pull-right" href="#">&times;</a>').click(this.proxiedOnClose);
+            var link = $('<a class="close pull-right" href="#">&times;</a>').click(this.proxiedOnClose);
             this.$note.prepend(link);
         }
     };
@@ -43,19 +41,16 @@
             type: 'success',
             closable: true,
             transition: 'fade',
-            fadeOut: {
-                delay: 3000,
-                enabled: true
-            },
+            fadeOutDelay: 3000,
             onClose: function () {},
             onClosed: function () {}
         },
         normalizeOptions: function (options) {
             if (!options.type) {
-                options.type = 'success';
+                options.type = this.defaultOptions.type;
             }
             if (!options.transition) {
-                options.transition = this.prototype.defaultOptions.transition;
+                options.transition = this.defaultOptions.transition;
             }
 
             return options;
@@ -81,14 +76,14 @@
             this.options.onClosed();
         },
         fadeOutIfEnable: function () {
-            var rc = this.options.fadeOut.enabled;
-            if (rc) {
+            var delay = this.options.fadeOutDelay;
+            if (delay !== false) {
                 this.$note
-                    .delay(this.options.fadeOut.delay || 3000)
+                    .delay(delay || 3000)
                     .fadeOut('slow', this.proxiedOnClose);
             }
 
-            return rc;
+            return delay === false;
         },
         show: function () {
             this.fadeOutIfEnable();
