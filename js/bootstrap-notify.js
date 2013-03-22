@@ -57,6 +57,7 @@
     this.options.onClose();
     $(this.$note).remove();
     this.options.onClosed();
+    return false;
   };
 
   Notification.prototype.show = function () {
