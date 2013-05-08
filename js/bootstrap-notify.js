@@ -36,13 +36,13 @@
 
     if(!this.options.message && this.$element.data("message") !== '') // dom text
       this.$note.html(this.$element.data("message"));
-    else 
+    else
       if(typeof this.options.message === 'object')
         if(this.options.message.html)
           this.$note.html(this.options.message.html);
         else if(this.options.message.text)
           this.$note.text(this.options.message.text);
-      else 
+      else
         this.$note.html(this.options.message);
 
     if(this.options.closable)
@@ -53,7 +53,7 @@
     return this;
   };
 
-  onClose = function() {
+  var onClose = function() {
     this.options.onClose();
     $(this.$note).remove();
     this.options.onClosed();
