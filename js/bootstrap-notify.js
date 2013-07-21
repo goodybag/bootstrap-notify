@@ -84,7 +84,7 @@
     type: 'success',
     closable: true,
     transition: 'fade',
-	icon: false,
+    icon: false,
     fadeOut: {
       enabled: true,
       delay: 3000
