@@ -50,6 +50,9 @@
       $(this._link).on('click', $.proxy(Notification.onClose, this)),
       this.$note.prepend(this._link);
 
+    if (this.options.icon)
+      this.$note.prepend('<i class="icon-' + this.options.icon + '"></i> ');
+	  
     return this;
   };
 
@@ -81,6 +84,7 @@
     type: 'success',
     closable: true,
     transition: 'fade',
+    icon: false,
     fadeOut: {
       enabled: true,
       delay: 3000
