@@ -23,7 +23,7 @@
     this.$element = $(element);
     this.$note    = $('<div class="alert"></div>');
     if (this.options.closable) {
-        this.$note    = $('<div class="alert alert-dismissable"></div>');
+        this.$note.addClass('alert-dismissable');
     }
 
     // Setup from options
