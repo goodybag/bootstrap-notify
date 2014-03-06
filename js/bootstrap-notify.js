@@ -17,39 +17,45 @@
  */
 
 (function ($) {
-  var Notification = function (element, options) {
+  var Notification = function (element, options, node) {
     // Element collection
     this.$element = $(element);
-    this.$note    = $('<div class="alert"></div>');
     this.options  = $.extend(true, {}, $.fn.notify.defaults, options);
 
-    // Setup from options
-    if(this.options.transition)
-      if(this.options.transition == 'fade')
-        this.$note.addClass('in').addClass(this.options.transition);
-      else this.$note.addClass(this.options.transition);
-    else this.$note.addClass('fade').addClass('in');
+    if (node != undefined) {
+      this.$note = node instanceof jQuery ? node : $(node);
+    } else {
+      this.$note = $('<div class="alert"></div>');
+      // Setup from options
+      if(this.options.transition)
+        if(this.options.transition == 'fade')
+          this.$note.addClass('in').addClass(this.options.transition);
+        else this.$note.addClass(this.options.transition);
+      else this.$note.addClass('fade').addClass('in');
 
-    if(this.options.type)
-      this.$note.addClass('alert-' + this.options.type);
-    else this.$note.addClass('alert-success');
+      if(this.options.type)
+        this.$note.addClass('alert-' + this.options.type);
+      else this.$note.addClass('alert-success');
 
-    if(!this.options.message && this.$element.data("message") !== '') // dom text
-      this.$note.html(this.$element.data("message"));
-    else
-      if(typeof this.options.message === 'object')
-        if(this.options.message.html)
-          this.$note.html(this.options.message.html);
-        else if(this.options.message.text)
-          this.$note.text(this.options.message.text);
+      if(!this.options.message && this.$element.data("message") !== '') // dom text
+        this.$note.html(this.$element.data("message"));
       else
-        this.$note.html(this.options.message);
+        if(typeof this.options.message === 'object')
+          if(this.options.message.html)
+            this.$note.html(this.options.message.html);
+          else if(this.options.message.text)
+            this.$note.text(this.options.message.text);
+        else
+          this.$note.html(this.options.message);
 
-    if(this.options.closable)
-      var link = $('<a class="close pull-right" href="#">&times;</a>');
-      $(link).on('click', $.proxy(onClose, this));
-      this.$note.prepend(link);
+      if(this.options.closable) {
+        var link = $('<a class="close pull-right" href="#">&times;</a>');
+        $(link).on('click', $.proxy(onClose, this));
+        this.$note.prepend(link);
+      }
+    }
 
+    $('a .close').on('click', $.proxy(onClose, this));
     return this;
   };
 
@@ -76,6 +82,10 @@
 
   $.fn.notify = function (options) {
     return new Notification(this, options);
+  };
+
+  $.fn.toNotify = function (options, node) {
+    return new Notification(node, options, this);
   };
 
   $.fn.notify.defaults = {
