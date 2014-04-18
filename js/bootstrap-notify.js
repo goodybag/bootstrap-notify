@@ -34,16 +34,22 @@
       this.$note.addClass('alert-' + this.options.type);
     else this.$note.addClass('alert-success');
 
+
+	if (this.options.glyphicon)
+		{
+		this.$note.append(this.options.glyphicon+"&nbsp;&nbsp;");
+		}
     if(!this.options.message && this.$element.data("message") !== '') // dom text
-      this.$note.html(this.$element.data("message"));
+      this.$note.append(this.$element.data("message"));
     else
       if(typeof this.options.message === 'object')
         if(this.options.message.html)
-          this.$note.html(this.options.message.html);
+          this.$note.append(this.options.message.html);
         else if(this.options.message.text)
-          this.$note.text(this.options.message.text);
+          this.$note.append(this.options.message.text);
       else
-        this.$note.html(this.options.message);
+        this.$note.append(this.options.message);
+        
 
     if(this.options.closable)
       var link = $('<a class="close pull-right" href="#">&times;</a>');
@@ -87,6 +93,7 @@
       delay: 3000
     },
     message: null,
+    glyphicon: null, // span
     onClose: function () {},
     onClosed: function () {}
   }
