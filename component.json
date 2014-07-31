@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-notify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "js/bootstrap-notify.js",
   "dependencies": {},
   "description": "Bootstrap alert system made better.",
