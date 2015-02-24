@@ -24,6 +24,21 @@
   bottom: 25px;
 }
 
+.notifications.top-center {
+  left: 50%;
+  top: 25px;
+}
+.notifications.bottom-center {
+  right: 50%;
+  bottom: 25px;
+}
+
+.notifications.center-center {
+  right: 50%;
+  bottom: 50%;
+}
+
+
 /* Notification Element */
 .notifications > div {
   position: relative;
