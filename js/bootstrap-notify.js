@@ -37,6 +37,9 @@
     else
       this.$note.addClass('alert-success');
 
+    if(this.options.class)
+      this.$note.addClass(this.options.class);
+
     if(!this.options.message && this.$element.data("message") !== '') // dom text
       this.$note.html(this.$element.data("message"));
     else
@@ -86,6 +89,7 @@
     type: 'success',
     closable: true,
     transition: 'fade',
+    class: 'alert-dismissible',
     fadeOut: {
       enabled: true,
       delay: 3000
