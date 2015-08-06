@@ -1,0 +1,25 @@
+{
+    "name": "components/bootstrap-notify",
+    "type": "component",
+    "description": "Bootstrap alert system made better.",
+    "keywords": [],
+    "license": "",
+    "authors": [
+        {
+            "name": "Andreas Lemke",
+            "email": "andreas.lemke@tu-braunschweig.de"
+        }
+    ],
+    "require": {
+    },
+    "extra": {
+        "component": {
+            "name": "bootstrap-notify",
+            "files": [
+                "css/*",
+                "js/*"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
