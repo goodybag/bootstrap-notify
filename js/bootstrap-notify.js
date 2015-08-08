@@ -1,7 +1,7 @@
 /**
  * bootstrap-notify.js v1.0
  * --
-  * Copyright 2012 Goodybag, Inc.
+ * Copyright 2012 Goodybag, Inc.
  * --
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,12 @@
 (function ($) {
   var Notification = function (element, options) {
     // Element collection
+    this.options  = $.extend(true, {}, $.fn.notify.defaults, options);
     this.$element = $(element);
     this.$note    = $('<div class="alert"></div>');
-    this.options  = $.extend(true, {}, $.fn.notify.defaults, options);
+    if (this.options.closable) {
+        this.$note.addClass('alert-dismissable');
+    }
 
     // Setup from options
     if(this.options.transition) {
