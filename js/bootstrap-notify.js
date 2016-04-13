@@ -94,4 +94,4 @@
     onClose: function () {},
     onClosed: function () {}
   }
-})(window.jQuery || jQuery);
+})(window.jQuery || jQuery); // support import style in react project
