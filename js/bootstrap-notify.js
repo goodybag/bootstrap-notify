@@ -94,4 +94,4 @@
     onClose: function () {},
     onClosed: function () {}
   }
-})(window.jQuery);
+})(window.jQuery || jQuery);
