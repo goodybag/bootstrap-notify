@@ -1,0 +1,14 @@
+{
+	"name": "bootstrap-notify",
+	"version": "0.2.0",
+	"homepage": "http://goodybag.github.com/bootstrap-notify",
+	"authors": [
+		"Nijiko Yonskai <nijikokun@gmail.com>",
+		"Lalit Kapoor <lalitkapoor@gmail.com>"
+	],
+	"description": "Bootstrap alert system made better",
+	"main": "js/bootstrap-notify.js",
+	"keywords": [
+		"notification"
+	]
+}
