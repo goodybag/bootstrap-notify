@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Bootstrap alert system made better.",
   "main": "js/bootstrap-notify.js",
+  "style":"css/bootstrap-notify.css",
   "directories": {
     "example": "examples"
   },
