@@ -1,0 +1,27 @@
+{
+  "name": "bootstrap-notify",
+  "version": "0.2.0",
+  "description": "Bootstrap alert system made better.",
+  "main": "js/bootstrap-notify.js",
+  "style":"css/bootstrap-notify.css",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vince-F/bootstrap-notify.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "alert"
+  ],
+  "author": "Nijiko Yonskai, Lalit Kapoor",
+  "license": "Apache License, Version 2.0",
+  "bugs": {
+    "url": "https://github.com/Vince-F/bootstrap-notify/issues"
+  },
+  "homepage": "https://github.com/Vince-F/bootstrap-notify#readme"
+}
