@@ -1,7 +1,7 @@
 bootstrap-notify
 ================
 
-Bootstrap alert system made better. [See Demo](http://goodybag.github.com/bootstrap-notify)
+Bootstrap alert system made better. [See Demo](http://goodybag.github.io/bootstrap-notify)
 
 ### Contributors
 

@@ -1,8 +1,10 @@
 {
   "name": "bootstrap-notify",
-  "version": "0.2.0",
+  "keywords": ["bootstrap", "notification", "alert"],
+  "version": "0.2.1",
   "main": "js/bootstrap-notify.js",
-  "dependencies": {},
+  "dependencies": { "jquery": "*"},
+  "license": "GPL-3.0",
   "description": "Bootstrap alert system made better.",
   "repository": {
     "type": "git",
